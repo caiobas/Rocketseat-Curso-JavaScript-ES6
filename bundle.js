@@ -1,19 +1,16 @@
 "use strict";
 
-var arr = [1, 3, 4, 5, 8, 10];
-var newArr = arr.map(function (item, index) {
-  return item + index;
+var arr = [1, 3, 4, 5, 6]; // Retira o "function", os parênteses, as chaves, o return e o ponto e virgula.
+
+var newArr = arr.map(function (item) {
+  return item * 2;
 });
 console.log(newArr);
-var sum = arr.reduce(function (total, next) {
-  return total + next;
-});
-console.log(sum);
-var filter = arr.filter(function (item) {
-  return item % 2 === 0;
-});
-console.log(filter);
-var find = arr.find(function (item) {
-  return item === 2;
-});
-console.log(find);
+
+var teste = function teste() {
+  return {
+    nome: 'Caio'
+  };
+};
+
+console.log(teste());
