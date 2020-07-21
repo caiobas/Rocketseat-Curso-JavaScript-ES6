@@ -1,16 +1,10 @@
 "use strict";
 
-var arr = [1, 3, 4, 5, 6]; // Retira o "function", os parênteses, as chaves, o return e o ponto e virgula.
-
-var newArr = arr.map(function (item) {
-  return item * 2;
-});
-console.log(newArr);
-
-var teste = function teste() {
-  return {
-    nome: 'Caio'
-  };
+var soma = function soma() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
+  return a + b;
 };
 
-console.log(teste());
+console.log(soma(1));
+console.log(soma());
