@@ -1,18 +1,16 @@
-const minhaPromise = () => new Promise((resolve, reject) => {
-    setTimeout(() => { resolve('OK') }, 2000);
-});
+import axios from 'axios';
 
-// await só executado dentro de uma função async
-// async function executaPromise() {
-//     console.log(await minhaPromise());
-//     console.log(await minhaPromise());
-//     console.log(await minhaPromise());
-//     console.log(await minhaPromise());
-// }
+class Api {
+    static async getUserInfo(username){
+        try{
+            const response = await axios.get(`https://api.github.com/users/${username}`);
 
-const executaPromise = async () => {
-    console.log(await minhaPromise());
-    console.log(await minhaPromise());
-    console.log(await minhaPromise());
+            console.log(response);
+        } catch (err) {
+            console.warn('Erro na API');
+        }
+    }
 }
-executaPromise();
+
+Api.getUserInfo('caiobas');
+Api.getUserInfo('caiobasASDAS');
