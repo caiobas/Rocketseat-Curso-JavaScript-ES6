@@ -1,16 +1,28 @@
-import axios from 'axios';
+class App {
+    constructor() {
+        this.repositories = [];
 
-class Api {
-    static async getUserInfo(username){
-        try{
-            const response = await axios.get(`https://api.github.com/users/${username}`);
+        this.formEl = document.getElementById('repo-form');
 
-            console.log(response);
-        } catch (err) {
-            console.warn('Erro na API');
-        }
+        this.registerHandlers();
+    }
+
+    registerHandlers() {
+        this.formEl.onsubmit = event => this.addRepository(event);
+    }
+
+    addRepository(event) {
+        event.preventDefault();
+
+        this.repositories.push({
+            name: 'rocketseat.com.br',
+            description: 'Tire a sua ideia do papel e dê vida à sua startup.',
+            avatar_url: 'https://avatars0.githubusercontent.com/u/28929274?v=4',
+            html_url: 'http://github.com/rocketseat/rocketseat.com.br'
+        });
+
+        console.log(this.repositories);
     }
 }
 
-Api.getUserInfo('caiobas');
-Api.getUserInfo('caiobasASDAS');
+new App();
